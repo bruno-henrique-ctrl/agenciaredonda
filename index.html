@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <title>Agência RedOnda</title>
+</head>
+
+<body>
+    <header>
+        <div>
+            <img src="assets/1.png" alt="logo">
+        </div>
+
+        <span>Conectamos seu negócio ao fluxo digital</span>
+    </header>
+
+    <aside id="nav">
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#depoimentos">Depoimentos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <section id="home">
+            <h2>Deixe a RedOnda levar seu negócio para o próximo nível!</h2>
+
+            <p>Não somos apenas mais uma agência – criamos estratégias que fluem e se adaptam, como o mar.</p>
+        </section>
+
+        <section id="sobre">
+            <h2>Sobre Nós</h2>
+
+            <h3>Navegamos junto com você</h3>
+
+            <p>A <span>RedOnda</span> surgiu da ideia de que o digital deve ser fluido, mas impactante. Nosso time é
+                formado por especialistas que entendem que cada negócio tem seu ritmo – e nós ajudamos a criar a onda
+                perfeita para o seu sucesso.</p>
+        </section>
+
+        <section id="servicos">
+            <h2>Nossos Serviços</h2>
+
+            <ul>
+                <li><strong>Onda Branding: </strong>Construção de identidade visual</li>
+                <li><strong>Onda Web: </strong>Sites que fluem em qualquer dispositivo</li>
+                <li><strong>Onda Social: </strong>Gestão de redes sociais com engajamento que viraliza</li>
+                <li><strong>Onda Performance: </strong>Tráfego pago que gera resultados</li>
+                <li><strong>Onda Conteúdo: </strong><span>Copywriting </span>e videos que conectam</li>
+            </ul>
+        </section>
+
+        <section id="depoimentos">
+            <h2>Quem surfou com a gente recomenda!</h2>
+
+            <small>Depoimentos fictícios</small>
+            <div>
+                <div>
+                    <img src="assets/man.png" alt="d1">
+                </div>
+
+                <p>
+                    "A RedOnda não só criou nosso site como revolucionou nossa comunicação. Agora estamos surfando na
+                    crista
+                    da onda!"<em> — Pedro Marques, SurfCo</em>
+                </p>
+            </div>
+
+            <div>
+                <div>
+                    <img src="assets/girl.png" alt="d2">
+                </div>
+
+                <p>
+                    "Profissionais que entendem de fluxo e timing. Resultados além do esperado!"<em> — Ana Beatriz,
+                        Oceano
+                        Ventures</em>
+                </p>
+            </div>
+        </section>
+
+        <section id="contato">
+            <h2>Contato</h2>
+
+            <h3>Pronto para navegar conosco?</h3>
+
+            <div>
+                <p>Praia do Button, 432 - São Paulo/SP</p>
+                <p>(11)98765-4321</p>
+                <p>contato@Redonda.com</p>
+            </div>
+
+            <form>
+                <h3>Mensagem</h3>
+
+                <label for="nome">Nome</label>
+                <input type="text" id="nome">
+
+                <label for="email">Email</label>
+                <input type="email" id="email">
+
+                <label for="mensagem">Mensagem</label>
+                <textarea id="mensagem"></textarea>
+
+                <button type="button">Enviar Onda</button>
+            </form>
+        </section>
+    </main>
+
+    <aside id="propaganda">
+        <div>
+            <span>🔥 OFERTA RELÂMPAGO!</span>
+            
+            <h3>Não fique para trás!" ou "Não perca essa onda!</h3>
+
+            <ul>
+                <li>🌊 <strong>Pacote Ondas</strong> - Branding + Site por <em>R$5.999</em><strong></li>
+                <li>🎯 <strong>Performance Total</strong> - 3 meses de gestão por <em>R$3.999</em></strong></li>
+            </ul>
+
+            <div id="tempo">
+                <p>Faltam</p>
+                <span>24</span>
+                <small>horas</small>
+                <span>59</span>
+                <small>minutos</small>
+                <span>59</span>
+                <small>segundos</small>
+            </div>
+            <button>QUERO MINHA OFERTA!</button>
+            <small>*Oferta válida apenas para os 10 primeiros clientes</small>
+        </div>
+    </aside>
+
+    <footer>
+        <small>RedOnda © 2024 — Fazendo seu negócio surfar no digital!</small>
+    </footer>
+
+    <script>
+        const tempoElemento = document.getElementById('tempo');
+        const [horas, minutos, segundos] = tempoElemento.querySelectorAll('span');
+
+        let tempoRestante = 24 * 60 * 60; // Segundos totais
+
+        function atualizarContador() {
+            const h = Math.floor(tempoRestante / 3600);
+            const m = Math.floor((tempoRestante % 3600) / 60);
+            const s = tempoRestante % 60;
+
+            horas.textContent = h.toString().padStart(2, '0');
+            minutos.textContent = m.toString().padStart(2, '0');
+            segundos.textContent = s.toString().padStart(2, '0');
+
+            if (tempoRestante > 0) {
+                tempoRestante--;
+                setTimeout(atualizarContador, 1000); // Atualiza a cada segundo
+            } else {
+                tempoElemento.innerHTML = '<p>Oferta encerrada!</p>';
+            }
+        }
+
+        atualizarContador();
+    </script>
+</body>
+
+</html>
